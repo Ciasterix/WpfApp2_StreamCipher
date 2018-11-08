@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp2_StreamCipher", "WpfApp2_StreamCipher\WpfApp2_StreamCipher.csproj", "{C0956D5A-08E9-4508-8D8F-436251A763C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0956D5A-08E9-4508-8D8F-436251A763C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0956D5A-08E9-4508-8D8F-436251A763C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0956D5A-08E9-4508-8D8F-436251A763C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0956D5A-08E9-4508-8D8F-436251A763C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EF85F2D-FD53-4C18-AE72-1244A22F6999}
+	EndGlobalSection
+EndGlobal
