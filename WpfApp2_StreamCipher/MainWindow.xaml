@@ -1,12 +1,40 @@
-﻿<Window x:Class="WpfApp2_StreamCipher.MainWindow"
+﻿<Window x:Name="Szyfrogram_Strumieniowy" x:Class="WpfApp2_StreamCipher.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2_StreamCipher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Szyfrogram Strumieniowy" Height="707" Width="1000" ResizeMode="NoResize">
     <Grid>
+        <TextBox x:Name="TextBox_PlainText" HorizontalAlignment="Left" Height="60" Margin="10,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="974" Background="#FFF6BFFF" FontSize="16" TextChanged="TextBox_PlainText_TextChanged" AcceptsReturn="True"/>
+        <Label x:Name="Label_PlainText" Content="Tekst:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,160,0,0" RenderTransformOrigin="1.122,0.538" Background="#FFF6BFFF" FontSize="16"/>
+        <Label x:Name="Label_PlainTextLength" Content="Długość tekstu: 0" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,160,10,0" RenderTransformOrigin="1.122,0.538" Background="#FFF6BFFF" FontSize="16" Width="440"/>
+
+        <TextBox x:Name="TextBox_BinaryText" HorizontalAlignment="Left" Height="60" Margin="10,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="974" Background="#FFDCD9FF" FontSize="16" TextChanged="TextBox_BinaryText_TextChanged" AcceptsReturn="True" IsReadOnly="True"/>
+        <Label x:Name="Label_BinaryText" Content="Tekst binarnie:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,261,0,0" RenderTransformOrigin="1.122,0.538" Background="#FFDCD9FF" FontSize="16"/>
+        <Label x:Name="Label_BinaryTextLength" Content="Liczba bitów: 0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,261,10,0" RenderTransformOrigin="1.122,0.538" Background="#FFDCD9FF" FontSize="16" Width="440"/>
+
+        <TextBox x:Name="TextBox_CipherKey" HorizontalAlignment="Left" Height="60" Margin="10,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="974" Background="#FFF5FFB8" FontSize="16" TextChanged="TextBox_CipherKey_TextChanged" AcceptsReturn="True" IsReadOnly="True"/>
+        <Label x:Name="Label_CipherKey" Content="Klucz szyfrowania:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,362,0,0" RenderTransformOrigin="1.122,0.538" Background="#FFF5FFB8" FontSize="16"/>
+        <Label x:Name="Label_CipherKeyLength" Content="Liczba bitów klucza szyfrowania: 0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,362,10,0" RenderTransformOrigin="1.122,0.538" Background="#FFF5FFB8" FontSize="16" Width="440"/>
+
+        <TextBox x:Name="TextBox_CipheredText" HorizontalAlignment="Left" Height="60" Margin="10,499,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="974" Background="#FFCCFFCE" FontSize="16" TextChanged="TextBox_CipheredText_TextChanged" AcceptsReturn="True" IsReadOnly="True"/>
+        <Label x:Name="Label_CipheredText" Content="Szyfrogram binarnie:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,463,0,0" RenderTransformOrigin="1.122,0.538" Background="#FFCCFFCE" FontSize="16"/>
+        <Label x:Name="Label_CipheredTextLength" Content="Liczba bitów szyfrogramu: 0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,463,10,0" RenderTransformOrigin="1.122,0.538" Background="#FFCCFFCE" FontSize="16" Width="440"/>
+
+        <Button x:Name="Button_LoadFile" Content="Załaduj tekst z pliku" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="10,10,0,0" Click="Button_LoadFile_Click" FontSize="16" Height="40"/>
+        <Button x:Name="Button_LoadBinaryText" Content="Załaduj bity z pliku" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="10,55,0,0" Click="Button_LoadBinaryText_Click" FontSize="16" Height="40"/>
+        <Button x:Name="Button_LoadKey" Content="Załaduj klucz z pliku" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="215,9,0,0" FontSize="16" Height="40" Click="Button_LoadKey_Click"/>
+        <Button x:Name="Button_CipherOrDecipher1" Content="Zaszyfruj / Deszyfruj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="215,54,0,0" FontSize="16" Height="40" Click="Button_CipherOrDecipher1_Click"/>
+        <Button x:Name="Button_SaveCipherAsChars" Content="Zapisz szyfrogram" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="420,10,0,0" FontSize="16" Height="40" Click="Button_SaveCipherAsChars_Click"/>
+        <Button x:Name="Button_SaveCipherBinary" Content="Zapisz szyfrogram jako bity" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="420,55,0,0" FontSize="16" Height="40" Click="Button_SaveCipherBinary_Click"/>
+        <Button x:Name="Button_ClearAllFields" Content="Wyczyść wszytkie pola" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="625,55,0,0" FontSize="16" Height="39" Click="Button_ClearAllFields_Click"/>
+        <Button x:Name="Button_Info" Content="Info" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="625,10,0,0" FontSize="16" Height="40" Click="Button_Info_Click"/>
         
+        
+        <TextBox x:Name="TextBox_CipheredTextAsChars" HorizontalAlignment="Left" Height="60" Margin="10,600,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="974" Background="#FFFDDBBF" FontSize="16" TextChanged="TextBox_CipheredTextAsChars_TextChanged" AcceptsReturn="True" IsReadOnly="True"/>
+        <Label x:Name="Label_CipheredTextAsChars" Content="Szyfrogram:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,564,0,0" RenderTransformOrigin="1.122,0.538" Background="#FFFDDBBF" FontSize="16"/>
+        <Label x:Name="Label_CipheredTextAsCharsLength" Content="Długość szyfrogramu: 0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,564,10,0" RenderTransformOrigin="1.122,0.538" Background="#FFFDDBBF" FontSize="16" Width="440"/>
     </Grid>
 </Window>
